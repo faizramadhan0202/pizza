@@ -36,7 +36,7 @@
                         @foreach ($orders as $order)
                           <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td>{{ $order->user->name }}</td>
+                            <td>{{ $order->user->name }} <br>{{ $order->phone }}</td>
                             <td>{{ $order->user->email }}</td>
                             <td>{{ $order->date }}</td>
                             <td>{{ $order->pizza->name }}</td>
