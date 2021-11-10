@@ -22,6 +22,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\FrontController::class, 'index'])->name('front');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/pizza/{id}', [App\Http\Controllers\FrontController::class, 'show'])->name('pizza.show');
+Route::post('/pizza/order', [App\Http\Controllers\FrontController::class, 'store'])->name('order.store');
 
 Route::group(['middleware' => 'auth', 'admin'], function(){
     Route::get('/pizza', [App\Http\Controllers\PizzaController::class, 'index'])->name('pizza.index');

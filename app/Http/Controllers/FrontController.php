@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Order;
 use App\Models\Pizza;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
 {
@@ -36,7 +38,28 @@ class FrontController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if ($request->small_pizza==0 && $request->medium_pizza==0 && $request->large_pizza==0){
+            return back()->with('errmassage', 'Please, Order atleast One Pizza');
+        }
+
+        if ($request->small_pizza < 0 || $request->medium_pizza < 0 || $request->large_pizza < 0){
+            return back()->with('errmassage', 'Please, Order Negative Pizza');
+        }
+        // dd($request->all());
+
+        Order::create([
+            'time' => $request->time,
+            'date' => $request->date,
+            'user_id' => Auth()->user()->id,
+            'phone' => $request->phone,
+            'pizza_id' => $request->pizza_id,
+            'small_pizza' => $request->small_pizza,
+            'medium_pizza' => $request->medium_pizza,
+            'large_pizza' => $request->large_pizza,
+            'body' => $request->body
+        ]);
+
+        return back()->with('massage', 'Order Pizza Success');
     }
 
     /**
