@@ -47,7 +47,8 @@ class FrontController extends Controller
      */
     public function show($id)
     {
-        //
+        $pizza = Pizza::find($id);
+        return view('show', compact('pizza'));
     }
 
     /**

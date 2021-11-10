@@ -24,10 +24,10 @@
                         <div class="row">
                             @forelse ( $pizzas as $pizza )
                                 <div class="col-md-4 mt-2" style="border: 1px solid #eee">
-                                    <img src="{{ Storage::url($pizza->image) }}" class="img-thumnail" style="width: 100%">
+                                    <img src="{{ Storage::url($pizza->image) }}" class="img-thumbnail" style="width: 100%">
                                     <p>{{ $pizza->name }}</p>
                                     <p>{{ $pizza->description }}</p>
-                                    <a href="">
+                                    <a href="{{ route('pizza.show', $pizza->id) }}">
                                         <button class="btn btn-primary mb-2">Order Now</button>
                                     </a>
                                 </div>
