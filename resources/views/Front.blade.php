@@ -22,10 +22,20 @@
                 <div class="card-header">Menu</div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-5">
-                                <p>Name</p>
-                                <p>Description</p>
-                            </div>
+                            @forelse ( $pizzas as $pizza )
+                                <div class="col-md-4 mt-2" style="border: 1px solid #eee">
+                                    <img src="{{ Storage::url($pizza->image) }}" class="img-thumnail" style="width: 100%">
+                                    <p>{{ $pizza->name }}</p>
+                                    <p>{{ $pizza->description }}</p>
+                                    <a href="">
+                                        <button class="btn btn-primary mb-2">Order Now</button>
+                                    </a>
+                                </div>
+                            @empty
+                                <p>No Data Pizza</p>
+                            @endforelse
+
+
                         </div>
                 </div>
             </div>
