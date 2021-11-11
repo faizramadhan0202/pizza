@@ -5,7 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-4">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">
+                    <a href="{{ route('front') }}" style="text-decoration: none; color:white;">Dashboard</a>
+                </div>
                     <div class="card-body">
                         <ul class="list-group-item">
                             <a href="" class="list-group-item list-group-item-action">Category</a>

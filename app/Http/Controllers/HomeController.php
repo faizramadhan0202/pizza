@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -23,6 +23,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        if (auth()->user()->is_admin == 1) {
+            return redirect()->route('user.order');
+        }
+        $orders = Order::latest()->where('id', auth()->user()->id)->get();
+        return view('home', compact('orders'));
+
+
+        // return view('home');
     }
 }
