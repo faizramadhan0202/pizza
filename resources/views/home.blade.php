@@ -6,12 +6,6 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">Order Pizza</div>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('pizza.index') }}" style="text-decoration: none">View</a></li>
-                            <li class="breadcrumb-item"><a href="{{ route('pizza.create') }}" style="text-decoration: none">Create</a></li>
-                        </ol>
-                    </nav>
                 <div class="card-body">
                     <table class="table table-striped table-hover text-center">
                         <thead>
@@ -27,9 +21,6 @@
                             <th scope="col">Total($)</th>
                             <th scope="col">Massage</th>
                             <th scope="col">Status</th>
-                            <th scope="col">Accept</th>
-                            <th scope="col">Pending</th>
-                            <th scope="col">Reject</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -51,18 +42,6 @@
                             <td>{{ $order->large_pizza }}</td>
                             <td>{{ $order->body }}</td>
                             <td>{{ $order->status }}</td>
-                            <form action="{{ route('order.status', $order->id) }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <td>
-                                    <input type="submit" value="accepted" name="status" class="btn btn-primary btn-sm">
-                                </td>
-                                <td>
-                                    <input type="submit" value="pending" name="status" class="btn btn-warning btn-sm">
-                                </td>
-                                <td>
-                                    <input type="submit" value="rejected" name="status" class="btn btn-danger btn-sm">
-                                </td>
-                            </form>
                         </tr>
                           @endforeach
                         </tbody>
@@ -72,4 +51,19 @@
         </div>
     </div>
 </div>
+
+<style>
+    a.list-group-item  {
+        font-size: 17;
+    }
+    a.list-group-item:hover {
+        background-color: red;
+        color: #fff;
+    }
+    .card-header {
+        background-color: red;
+        color: #fff;
+        font-size: 20px;
+    }
+</style>
 @endsection
