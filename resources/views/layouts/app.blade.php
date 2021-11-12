@@ -58,6 +58,20 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if (auth()->user()->is_admin == 0)
+
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                        History Order
+                                    </a>
+                                    @endif
+
+                                    @if (auth()->user()->is_admin == 1)
+
+                                    <a class="dropdown-item" href="{{ route('user.order') }}">
+                                        Order User
+                                    </a>
+                                    @endif
+
                                     <a href="{{ route('pizza.index') }}" class="dropdown-item">Dashboard</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
