@@ -67,6 +67,10 @@
 
                                     @if (auth()->user()->is_admin == 1)
 
+                                    <a class="dropdown-item" href="{{ route('customer') }}">
+                                        All Customer
+                                    </a>
+
                                     <a class="dropdown-item" href="{{ route('user.order') }}">
                                         Order User
                                     </a>

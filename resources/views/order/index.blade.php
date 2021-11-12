@@ -16,7 +16,7 @@
                     <table class="table table-striped table-hover text-center">
                         <thead>
                           <tr>
-                            <th scope="col">No</th>
+                            {{-- <th scope="col">No</th> --}}
                             <th scope="col">User</th>
                             <th scope="col">Email</th>
                             <th scope="col">Date</th>
@@ -35,7 +35,7 @@
                         <tbody>
                         @foreach ($orders as $order)
                           <tr>
-                            <td>{{ $loop->iteration }}</td>
+                            {{-- <td>{{ $loop->iteration }}</td> --}}
                             <td>{{ $order->user->name }} <br>{{ $order->phone }}</td>
                             <td>{{ $order->user->email }}</td>
                             <td>{{ $order->date }}</td>
