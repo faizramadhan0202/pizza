@@ -9,12 +9,13 @@
                     <a href="{{ route('front') }}" style="text-decoration: none; color:white;">Dashboard</a>
                 </div>
                     <div class="card-body">
-                        <ul class="list-group-item">
-                            <a href="" class="list-group-item list-group-item-action">Category</a>
-                            <a href="" class="list-group-item list-group-item-action">Category</a>
-                            <a href="" class="list-group-item list-group-item-action">Category</a>
-                            <a href="" class="list-group-item list-group-item-action">Category</a>
-                            <a href="" class="list-group-item list-group-item-action">Category</a>
+                        <ul class="list-group">
+                            <form action="{{ route('front') }}" method="get">
+                                <a href="/">Back</a>
+                                <input type="submit" value="vegetarian" name="category" class="list-group-item list-group-item-action">
+                                <input type="submit" value="nonvegetarian" name="category" class="list-group-item list-group-item-action">
+                                <input type="submit" value="traditional" name="category" class="list-group-item list-group-item-action">
+                            </form>
                         </ul>
                     </div>
                 </div>
